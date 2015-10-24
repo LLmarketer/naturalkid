@@ -1,98 +1,66 @@
-.lists {
-    display: inline-block;
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+nav {
+    width: 100%;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
 
-.color-element-list li:first-child{
-    color: green;
-}
-
-.color-element-list li:last-child{
-    color: red;
-}
-
-.par-number li:nth-child(2n){
-    color: brown;
-}
-
-.odd-number li:nth-child(odd){
-    color: #6699cc;
-}
-
-.select-number li:nth-child(4){
-    color: #000088;
-}
-
-.animations {
+li {
     display: inline;
+    padding-top: 0px;
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
 }
 
-.box {
-    -webkit-transition: color 1s ease, padding 1s linear;
-    -moz-transition: color 1s ease, padding 1s linear;
-    -ms-transition: color 1s ease, padding 1s linear;
-    -o-transition: color 1s ease, padding 1s linear;
-    transition: color 1s ease, padding 1s linear;
-    padding: 30px;
-    background: green;
-    border: 1px solid red;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 300px;
-    margin-top: 290px;
+
+.menu li a {
+    background-color: #E9DC51;
+    color: lightcoral;
+    padding: 10px 20px;
+    width: 100%;
+    overflow: hidden;
+    text-decoration: none;
+
 
 }
 
-.box:hover {
-    color: yellow;
-    padding: 20px;
+.menu li a:hover{
+    background-color: darkorange;
+    color: white;
+    font-size: large;
 }
 
-.box2{
-    left:30px;
-    position:relative;
-    border-radius: 20px;
-    background-color:#ddd;
-    width:200px;
-    height:100px;
-    padding:4px;
-    -moz-animation-name: animacion1;
-    -moz-animation-duration: 4s;
-    -webkit-animation-name: animacion1;
-    -webkit-animation-duration: 4s;
-    -o-animation-name: animacion1;
-    -o-animation-duration: 4s;
+.homepagecontent {
+    background-color: #86C7EE;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
-@-moz-keyframes animacion1 {
-    from {
-        left:30px;
-        background-color:#ddd;
+
+h1 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.learnmore{
+    text-align: center;
+    text-align: center;
+
     }
-    to {
-        left:300px;
-        background-color:#ff0;
-    }
-}
-
-@-webkit-keyframes animacion1 {
-    from {
-        left:30px;
-        background-color:#ddd;
-    }
-    to {
-        left:300px;
-        background-color:#ff0;
-    }
-}
-
-@-o-keyframes animacion1 {
-    from {
-        left:30px;
-        background-color:#ddd;
-    }
-    to {
-        left:300px;
-        background-color:#ff0;
-    }
-}
