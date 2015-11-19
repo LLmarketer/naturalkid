@@ -1,0 +1,31 @@
+include mixins/header
+
+body
+   include mixins/menu
+
+   .subscribe-box
+      form.form-inline.subscription
+         .form-group
+            label(for="name") Name
+            input(type="text" class="form-control" id="name" placeholder="Jane Doe")
+
+         .form-group
+            label(for="email") Email
+            input(type="email" class="form-control" id="email" placeholder="jane.doe@example.com")
+
+         .form-group.gender-content
+            label(for="gender") I am a
+            .radio-elements
+               input.toggle(type="radio" value="mother" name="gender" class="form-control" id="gender")
+               span.gender  Mother
+               input.toggle(type="radio" value="father" name="gender" class="form-control" id="gender")
+               span.gender  Father
+
+         button(type="submit" class="btn btn-default") Yes, I want to learn more
+
+
+
+   include mixins/scripts
+//
+   Created by lydialavecchia on 18/11/2015.
+

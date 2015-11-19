@@ -20,6 +20,14 @@ gulp.task('browser-sync', function() {
     });
 });
 
+
+gulp.task('php-connect-server', function() {
+    php.server({base:"backend", hostname:"naturalkid.dev"});
+    gulp.watch('**/*.php').on('change', function () {
+        browserSync.reload();
+    });
+});
+
 gulp.task('coffee', function() {
     return gulp.src('src/scripts/*.coffee')
         .pipe($.plumber())
@@ -74,21 +82,21 @@ gulp.task('html', function(){
 });
 
 gulp.task('jade', function () {
-    var testJade = gulp.src('src/jade/*.jade')
-        .pipe($.plumber())
-        .pipe($.jade({
-            pretty: true
-        })).pipe( gulp.dest('./bower_components/dmk-menu/templates/'))
-        .pipe(browserSync.reload({stream: true}))
-        .pipe( $.livereload( server ) );
-    var jadeComponent = gulp.src('src/jade/*.jade')
+    var template=gulp.src('src/jade/*.jade')
         .pipe($.plumber())
         .pipe($.jade({
             pretty: true
         })).pipe( gulp.dest('templates/'))
         .pipe(browserSync.reload({stream: true}))
         .pipe( $.livereload( server ) );
-    return merge(testJade, jadeComponent)
+    var main=gulp.src('src/index.jade')
+        .pipe($.plumber())
+        .pipe($.jade({
+            pretty: true
+        })).pipe( gulp.dest('./'))//root directory
+        .pipe(browserSync.reload({stream: true}))
+        .pipe( $.livereload( server ) );
+    return merge(template,main);
 });
 
 gulp.task('build', ['coffee', 'scripts', 'compass', 'css', 'html' ,'jade']);
@@ -97,11 +105,13 @@ gulp.task('server', function (callback) {
     runSequence('build','browser-sync');
     gulp.watch('src/scripts/*.coffee',['coffee', reload]);
     gulp.watch('src/scripts/*.js',['scripts', reload]);
-    gulp.watch('src/stylesheets/*.sass',['compass', reload]);
-    gulp.watch('src/stylesheets/*.css',['css', reload]);
+    gulp.watch('src/main.scss',['compass',reload]);
+    gulp.watch('src/stylesheets/*.scss',['compass', reload]);
     gulp.watch('src/index.html',['html', reload]);
     gulp.watch('src/views/*.html', ['html', reload]);
     gulp.watch('src/jade/*.jade', ['jade', reload]);
+    gulp.watch('src/index.jade',['jade',reload]);
+    gulp.watch('src/mixins/*.jade', ['jade',reload]);
 });
 
 gulp.task('default', ['server']);
