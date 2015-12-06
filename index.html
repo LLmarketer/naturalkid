@@ -34,11 +34,11 @@
     <form class="form-inline subscription">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Jane Doe" class="form-control"/>
+        <input type="text" name="name" id="name" placeholder="Jane Doe" class="form-control"/>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="jane.doe@example.com" class="form-control"/>
+        <input type="email" name="email" id="email" placeholder="jane.doe@example.com" class="form-control"/>
       </div>
       <div class="form-group gender-content">
         <label for="gender">I am a</label>
@@ -49,9 +49,42 @@
       </div>
       <button type="submit" class="btn btn-default">Yes, I want to learn more</button>
     </form>
+    <!-- Modal-->
+    <div tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="successSubscription modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            <h4 id="myModalLabel" class="modal-title">SUCCESS</h4>
+          </div>
+          <div class="modal-body success"></div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal-->
+    <div tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="errorSubscription modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            <h4 id="myModalLabel" class="modal-title">ERROR IN DATABASE</h4>
+          </div>
+          <div class="modal-body failure"></div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+  <script src="../scripts/getsubscription.js"></script>
   <!--Created by lydialavecchia on 19/11/2015.-->
 </body>
 <!--Created by lydialavecchia on 18/11/2015.

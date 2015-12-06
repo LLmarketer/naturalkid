@@ -7,11 +7,11 @@ body
       form.form-inline.subscription
          .form-group
             label(for="name") Name
-            input(type="text" class="form-control" id="name" placeholder="Jane Doe")
+            input(type="text" name="name" class="form-control" id="name" placeholder="Jane Doe")
 
          .form-group
             label(for="email") Email
-            input(type="email" class="form-control" id="email" placeholder="jane.doe@example.com")
+            input(type="email" name="email" class="form-control" id="email" placeholder="jane.doe@example.com")
 
          .form-group.gender-content
             label(for="gender") I am a
@@ -23,8 +23,30 @@ body
 
          button(type="submit" class="btn btn-default") Yes, I want to learn more
 
-
-
+      // Modal
+      .successSubscription.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+         .modal-dialog(role='document')
+            .modal-content
+               .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                     span(aria-hidden='true') ×
+                  h4#myModalLabel.modal-title SUCCESS
+               .modal-body.success
+               .modal-footer
+                  button.btn.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-primary(type='button') Save changes
+      // Modal
+      .errorSubscription.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+         .modal-dialog(role='document')
+            .modal-content
+               .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                     span(aria-hidden='true') ×
+                  h4#myModalLabel.modal-title ERROR IN DATABASE
+               .modal-body.failure
+               .modal-footer
+                  button.btn.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-primary(type='button') Save changes
    include mixins/scripts
 //
    Created by lydialavecchia on 18/11/2015.
